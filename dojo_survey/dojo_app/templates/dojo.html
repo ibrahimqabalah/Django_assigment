@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/route1">
+        {% csrf_token %}
+        <p>Your Name :<input type="text" name="Your Name"></p>
+        <p>Dojo location :<select name="location" id="">
+            <option value="san jose">san jose</option>
+            <option value="london">london</option>
+            <option value="region">region</option>
+        </select></p>
+        <br>
+        <p>Favorite Language: <select name="Favorite" id="">
+            <option value="python">python</option>
+            <option value="Java Script">Java Script</option>
+            <option value="Django">Django</option>
+        </select></p>
+        <textarea name="Comment" id="" cols="30" rows="10">Comment(optional):</textarea>
+        <input type="submit" value="Send Form">
+    </form>
+</body>
+</html> 
