@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+<body>
+    <h1>welcome to the Great Number Game!</h1>
+    {%if 'result' not in request.session or request.session.result == 'Too high!' or  request.session.result == 'Too low!' %} 
+    <form action="/guess" method="POST">
+    {% csrf_token %}
+    <p>I am thinking of number between 1 and 100</p>
+    {%if request.session.result == 'Too high!' or  request.session.result == 'Too low!' %} 
+    <div style="background-color: red;">{{request.session.result}} </div>
+    {% endif %}
+    <p>Take a guess!</p>
+    <input type="text" name="guess"/>
+    <input type="submit" value="Submit Guess"/>
+    </form>
+    {%else%} 
+    <div style="background-color: green;">congratulations!</div>
+    <form action="/reset">
+        <input type="submit" value="play again"/>
+    </form>
+    {% endif %}
+</body>
+</html>
